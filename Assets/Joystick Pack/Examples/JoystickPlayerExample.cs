@@ -13,7 +13,6 @@ public class JoystickPlayerExample : MonoBehaviour
     [Header("Player")]
     public Transform PlayerOriginalPos;
     private Transform PlayerOrigPos;
-    //public Transform PlayerOriginalTo;
     public Transform PlayerController;
     public Transform Goal;
     public float speed;
@@ -47,7 +46,6 @@ public class JoystickPlayerExample : MonoBehaviour
         PlayerOrigPos = PlayerOriginalPos;
         Anim = GetComponent<Animator>();
         Anim.SetBool("Idle", true);
-        //Dead = true;
 
         Button btnStart = Starts.GetComponent<Button>();
         btnStart.onClick.AddListener(StartTaskOnClick);
@@ -69,7 +67,6 @@ public class JoystickPlayerExample : MonoBehaviour
                 }
                 transform.rotation = Quaternion.LookRotation(movements);
                 transform.position = Vector3.MoveTowards(transform.position, PlayerController.position, speed * Time.deltaTime);
-                //rb.MovePosition(rb.position + movements * speed * Time.deltaTime);
                 Anim.SetBool("Run", true);
                 Anim.SetBool("Idle", false);
             }
@@ -122,7 +119,6 @@ public class JoystickPlayerExample : MonoBehaviour
             Finished = true;
             scriptManager.Next.gameObject.SetActive(true);
             scriptManager.Restart.gameObject.SetActive(true);
-            //Dead = true;
         }
 
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Border" && !Finished)
@@ -152,7 +148,6 @@ public class JoystickPlayerExample : MonoBehaviour
         IsRunning = false;
         OneTime = true;
         AllowRun = false;
-        //variableJoystick.Running = false;
         gameObject.transform.position = PlayerOrigPos.position;
         Anim.SetBool("Run", false);
         Anim.SetBool("Idle", true);

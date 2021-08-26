@@ -12,10 +12,6 @@ public class ScriptManager : MonoBehaviour
     [Header("Level Number")]
     public int LevelNB;
 
-    //[Space]
-    //[Header("EnemyPacks")]
-    //public GameObject[] EnemyPacksList;
-
     [Space]
     [Header("Levels")]
     public GameObject[] LevelsList;
@@ -29,8 +25,6 @@ public class ScriptManager : MonoBehaviour
     public GameObject Tutorial;
 
     public Animator anim1;
-    //public Animator anim2;
-    //public Animator anim3;
 
     [Space]
     [Header("Player")]
@@ -38,7 +32,6 @@ public class ScriptManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
         if ((PlayerPrefs.GetInt("LevelReached")) == 0)
         {
             PlayerPrefs.SetInt("LevelReached", 1);
@@ -46,8 +39,6 @@ public class ScriptManager : MonoBehaviour
 
         CurrrentLevelNB.text = (PlayerPrefs.GetInt("LevelReached")).ToString();
         CurrentLevel();
-        //anim2 = Restart.GetComponent<Animator>();
-        //anim3 = RestartAfterDeath.GetComponent<Animator>();
 
         Button btnNext = Next.GetComponent<Button>();
         btnNext.onClick.AddListener(NextTaskOnClick);
@@ -149,7 +140,6 @@ public class ScriptManager : MonoBehaviour
     {
        int i = 0;
        LevelNB = PlayerPrefs.GetInt("LevelReached");
-       //Debug.Log(LevelNB);
 
         foreach (GameObject level in LevelsList)
         {
@@ -165,7 +155,6 @@ public class ScriptManager : MonoBehaviour
 
             if (LevelNB == LevelsList.Length)
             {
-                //PlayerPrefs.DeleteAll();
                 LevelsList[LevelNB - 1].SetActive(false);
                 LevelsList[LevelNB - 1].GetComponent<LevelManager>().Delete();
 

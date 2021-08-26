@@ -10,7 +10,6 @@ public class LevelManager : MonoBehaviour
 
     [Space]
     [Header("Ground")]
-    //private GameObject PrivateCurrentGround;
     public GameObject CurrentGround;
     public GameObject GroundClone;
 

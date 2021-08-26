@@ -28,7 +28,6 @@ public class Enemy : MonoBehaviour
 
     [Space]
     [Header("Button")]
-    public Button Next;
     public Button Restart;
     public Button RestartAfterDeath;
 
@@ -39,9 +38,6 @@ public class Enemy : MonoBehaviour
         Anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         Anim.SetBool("Idle", true);
-
-        Button btnNext = Next.GetComponent<Button>();
-        btnNext.onClick.AddListener(NextTaskOnClick);
 
         Button btnRestart = Restart.GetComponent<Button>();
         btnRestart.onClick.AddListener(RestartTaskOnClick);
@@ -104,11 +100,6 @@ public class Enemy : MonoBehaviour
         {
             rb.AddForce(Vector3.back * InitialMoveSpeed * 100);
         }
-
-    }
-
-    void NextTaskOnClick()
-    {
 
     }
     void RestartTaskOnClick()
